@@ -9,11 +9,11 @@ const Home = () => {
             <div className='page-title'>Welcome to the best insurance service in the world!</div>
 
             <div className="page-description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae maximus eros, ac rhoncus ante. Aliquam mi neque, accumsan tristique felis sed, pharetra mollis tortor. Sed efficitur eget lorem in hendrerit. Integer a arcu nec nunc finibus dictum. Nullam nunc turpis, consectetur consequat mattis vel, suscipit vitae urna. Vivamus vehicula tortor eu est eleifend molestie. Nam gravida elit ut dolor porta imperdiet. Praesent vulputate lacus lacus, quis feugiat nibh sollicitudin vel. Ut sed dolor eget tortor interdum venenatis vitae vel velit. Pellentesque id odio placerat, accumsan leo laoreet, aliquet nibh. Suspendisse et gravida orci, quis placerat augue. Mauris suscipit arcu sit amet pharetra ultricies. Praesent egestas ut lectus in varius. Proin aliquet, erat in luctus accumsan, massa velit posuere neque, sed feugiat diam arcu sit amet enim.
             </div>
 
             <Link to='/personal-info'>
-              <button className="btn btn-primary get-start-btn">click to get started</button>
+              <button className="btn btn-primary get-start-btn">30-Days free!</button>
             </Link>
 
         </div>
