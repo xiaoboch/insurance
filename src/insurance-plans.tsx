@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
-const Insurances = () => {
+const InsurancePlans = () => {
     return (
         <div>
             <h1>Choose your plan</h1>
@@ -14,4 +14,4 @@ const Insurances = () => {
     );
 }
 
-export default Insurances;
+export default InsurancePlans;
