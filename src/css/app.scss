@@ -1,8 +1,8 @@
 .app {
     .content {
         margin: auto;
-        height: calc(100vh - 8em);
-        padding-top: 5em;
+        min-height: calc(100vh - 8em);
+        padding-top: 3em;
         background-image: url('../images/expat-insurance.jpg');
         color: #495057;
 
@@ -13,7 +13,7 @@
 
             .page-title {
                 font-size: 4em;
-                margin-bottom: 1em;
+                margin-bottom: 0.5em;
             }
     
             .page-description {

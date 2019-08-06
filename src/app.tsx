@@ -4,10 +4,9 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './home';
-import PersonalInfo from './personal_info';
-import InsurancePlans from './insurance-plans';
-import InsuranceDetail from './insurance-detail';
-import MyPage from './my_page';
+import {InsurancePlans} from './insurance_plans';
+import {InsuranceDetail} from './insurance_detail';
+import {User} from './user';
 import Header from './commons/header';
 import Footer from './commons/footer';
 import AboutUs from './about_us';
@@ -26,10 +25,9 @@ class App extends React.PureComponent {
                         <div className="content">
                             <div className="section">
                                 <Route exact path='/' component={Home}></Route>
-                                <Route path='/personal-info' component={PersonalInfo}></Route>
-                                <Route path='/insurances' component={InsurancePlans}></Route>
-                                <Route path='/insurance-detail' component={InsuranceDetail}></Route>
-                                <Route path='/my-page' component={MyPage}></Route>
+                                <Route path='/user' component={User}></Route>
+                                <Route exact path='/insurance-plans' component={InsurancePlans}></Route>
+                                <Route path='/insurance-plans/:plan' component={InsuranceDetail}></Route>
                                 <Route path='/about-us' component={AboutUs}></Route>
                             </div>
                         </div>

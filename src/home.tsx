@@ -12,7 +12,7 @@ const Home = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae maximus eros, ac rhoncus ante. Aliquam mi neque, accumsan tristique felis sed, pharetra mollis tortor. Sed efficitur eget lorem in hendrerit. Integer a arcu nec nunc finibus dictum. Nullam nunc turpis, consectetur consequat mattis vel, suscipit vitae urna. Vivamus vehicula tortor eu est eleifend molestie. Nam gravida elit ut dolor porta imperdiet. Praesent vulputate lacus lacus, quis feugiat nibh sollicitudin vel. Ut sed dolor eget tortor interdum venenatis vitae vel velit. Pellentesque id odio placerat, accumsan leo laoreet, aliquet nibh. Suspendisse et gravida orci, quis placerat augue. Mauris suscipit arcu sit amet pharetra ultricies. Praesent egestas ut lectus in varius. Proin aliquet, erat in luctus accumsan, massa velit posuere neque, sed feugiat diam arcu sit amet enim.
             </div>
 
-            <Link to='/personal-info'>
+            <Link to='/user'>
               <button className="btn btn-primary get-start-btn">30-Days free!</button>
             </Link>
 

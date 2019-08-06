@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@primer/octicons-react": "^9.1.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "parcel-bundler": "^1.12.3",

@@ -1,16 +1,25 @@
 export interface IRootState {
     user: IUser;
+    editUserMode: boolean;
     cars: ICar[];
     selectedPlans: IInsurancePlan[];
-    allPlans: IInsurancePlan[];
+    allPlans: {[key: string]: IInsurancePlan[]};
+}
+
+export enum IInsuranceType {
+    CAR,
+    TRAVEL,
+    CONTENT,
 }
 
 export interface IUser {
-    firstName: string;
-    lastName: string;
+    id: number;
+    fullName: string;
     ssn: number;
     email: string;
     mobile: string;
+    country: string;
+    gender: string;
 }
 
 export interface ICar {
@@ -20,8 +29,9 @@ export interface ICar {
 }
 
 export interface IInsurancePlan {
-    type: string;
     name: string;
+    description: string;
+    order: number;
     costPrMonth: number;
     selected: boolean;
 }

@@ -1,0 +1,23 @@
+.user-detail {
+
+    .user-detail-wrapper{
+        display: inline-block;
+
+        .detail-list {
+            display: grid;
+            grid-template-columns: 60px 200px 200px;
+            text-align: left;
+            font-size: 1.2em;
+
+            .label {
+                font-weight: bold;
+            }
+            
+            .icon {
+                text-align: center;
+            }
+        }
+        
+    }
+
+}
