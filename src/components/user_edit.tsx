@@ -42,8 +42,6 @@ const UserEditCore = (props: IProps & IDispatchers) => {
 
     return (
         <div className='register'>
-            <div className='page-title'>Register</div>
-
             <div className="register-form">
                 <InputGroup className="mb-3">
                     <InputGroup.Prepend>

@@ -21,7 +21,7 @@ const UserCore = (props) => {
                 <Link to='/'>Home</Link>
             </Breadcrumb>
 
-            <div className='page-title'>Your information</div>
+            <div className='page-title'>Your profile</div>
 
             <div className="user-info">
                 {(props.user.id && !props.editUserMode) ? <UserDetail {...{ user: props.user }} /> : <UserEdit />}

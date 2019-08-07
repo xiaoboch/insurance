@@ -26,7 +26,7 @@ const emptyUser = {
 const initialState: IRootState = {
     user: registeredUser,
     tempUser: emptyUser,
-    editUserMode:false,
+    editUserMode: false,
     cars: [],
     selectedPlans: {},
     allPlans: {
