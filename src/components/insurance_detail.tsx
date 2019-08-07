@@ -84,7 +84,7 @@ const InsuranceDetailCard = (props: IInsuranceDetailCardProps) => {
                         {plan.description}
                     </div>
                     <div className="costPrMonth">
-                        {plan.costPrMonth}
+                      Kostnad:  {plan.costPrMonth}
                     </div>
                     <Button className='select-plan-btn' onClick={() => props.handleShow(plan)} disabled={props.selected}>
                         {props.selected ? 'Selected' : 'Select'}

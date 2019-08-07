@@ -1,9 +1,15 @@
 .footer {
     height: 4em;
-    background-color:gray;
+    background-color:#000000bf;
     color: white;
     
     .item {
         line-height: 4em;
+
+        .nav-link {
+            color: #ff6400;
+            font-size: 1.2em;
+            line-height: 3em;   
+        }
     }
 }

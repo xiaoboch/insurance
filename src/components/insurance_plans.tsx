@@ -55,7 +55,7 @@ const PlanCard = (props: IPlayCardProps) => {
             <Card.Body>
                 <Card.Title>{props.cat}</Card.Title>
                 <Card.Text>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae condimentum velit. Nam luctus vel nunc in tincidunt.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae condimentum velit.
                 </Card.Text>
                 <Link to={url} >
                     <Button variant="primary">Detalije</Button>
