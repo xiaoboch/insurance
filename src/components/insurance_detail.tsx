@@ -75,8 +75,10 @@ const InsuranceDetailCard = (props: IInsuranceDetailCardProps) => {
     const { plan } = props;
     return (
         <Card className='plan-card'>
-            <Accordion.Toggle as={Card.Header} eventKey={plan.order + ''}>
-                {plan.name}
+            <Accordion.Toggle as={Card.Header} eventKey={plan.order + ''} >
+               <span className={props.selected ? 'plan-selected': ''}>
+               {plan.name} {props.selected ? ' (Chosen one)': ''} 
+               </span> 
             </Accordion.Toggle>
             <Accordion.Collapse eventKey={plan.order + ''}>
                 <Card.Body>
