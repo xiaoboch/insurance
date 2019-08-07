@@ -13,7 +13,8 @@ import AboutUs from './about_us';
 import './css/app.scss';
 import rootReducer from '../reducer';
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, 
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 class App extends React.PureComponent {
     render() {

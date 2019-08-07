@@ -4,15 +4,22 @@ import './css/home.scss';
 import { IRootState, IUser } from '../types';
 
 import './css/user_detail.scss';
+import { editUserInfo } from '../action';
+import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 interface IProps {
     user: IUser,
 }
 
-const UserDetail = (props) => {
+interface IDispatchers {
+    editUserInfo: typeof editUserInfo;
+}
+
+const UserDetailCore = (props: IProps & IDispatchers) => {
     console.log('user details: ', props);
-    const { user } = { ...props };
+    const { user, editUserInfo } = { ...props };
     return (
         <div className='user-detail'>
             <div className="user-detail-wrapper">
@@ -30,24 +37,29 @@ const UserDetail = (props) => {
                     <div className="label">Email:</div>
                     <div className="value">{user.email}</div>
 
-                    <div className="icon"><Octicon icon={DeviceMobile} size='medium'/></div>
+                    <div className="icon"><Octicon icon={DeviceMobile} size='medium' /></div>
                     <div className="label">
                         Mobile: </div>
                     <div className="value">{user.mobile}</div>
 
-                    <div className="icon"><Octicon icon={Globe} size='medium'/></div>
+                    <div className="icon"><Octicon icon={Globe} size='medium' /></div>
                     <div className="label">Country: </div>
                     <div className="value">{user.country}</div>
 
-                    <div className="icon"><Octicon icon={Organization} size='medium'/></div>
+                    <div className="icon"><Octicon icon={Organization} size='medium' /></div>
                     <div className="label">Gender: </div>
                     <div className="value">{user.gender}</div>
                 </div>
 
-                <div className='btn btn-link'>Edit</div>
+                <div className='btn btn-link' onClick={editUserInfo}>Edit</div>
             </div>
+
+            <Link to='/insurance-plans'>
+                <Button>Choose plans</Button>
+            </Link>
         </div>
     );
 }
 
-export default UserDetail;
+
+export const UserDetail = connect(null, { editUserInfo })(UserDetailCore);

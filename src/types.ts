@@ -1,5 +1,6 @@
 export interface IRootState {
     user: IUser;
+    tempUser: IUser;
     editUserMode: boolean;
     cars: ICar[];
     selectedPlans: IInsurancePlan[];

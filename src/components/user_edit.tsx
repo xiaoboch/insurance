@@ -4,8 +4,42 @@ import { Link } from 'react-router-dom';
 import { InputGroup, FormControl, Button, Form } from 'react-bootstrap';
 import Octicon, { Person, Note, DeviceMobile, Mail, Organization, Globe } from '@primer/octicons-react';
 import './css/register.scss';
+import {saveUserInfo} from '../action';
+import {connect} from 'react-redux';
+import { IUser, IRootState } from '../types';
 
-const UserEdit = () => {
+interface IProps {
+    tempUser: IUser;
+}
+
+interface IDispatchers {
+    saveUserInfo: typeof saveUserInfo;
+}
+
+const UserEditCore = (props: IProps & IDispatchers) => {
+    
+    const tempUser = props.tempUser;
+
+    const [fullName, setFullName] = React.useState(tempUser.fullName);
+    const [ssn, setSsn] = React.useState(tempUser.ssn);
+    const [email, setEmail] = React.useState(tempUser.email);
+    const [mobile, setMobile] = React.useState(tempUser.mobile);
+    const [country, setCountry] = React.useState(tempUser.country);
+    const [gender, setGender] = React.useState(tempUser.gender);
+
+    const saveUser = () =>{
+        const user = {
+            fullName, 
+            country,
+            email,
+            mobile, 
+            ssn,
+            gender,
+            id: 1,
+        } as IUser;
+        props.saveUserInfo(user);
+    }
+
     return (
         <div className='register'>
             <div className='page-title'>Register</div>
@@ -21,6 +55,8 @@ const UserEdit = () => {
                         placeholder="full name"
                         aria-label="full name"
                         aria-describedby="basic-addon1"
+                        value={fullName}
+                        onChange={e => setFullName(e.target.value)}
                     />
                 </InputGroup>
 
@@ -34,6 +70,8 @@ const UserEdit = () => {
                         placeholder="social security number"
                         aria-label="ssn"
                         aria-describedby="basic-addon1"
+                        value={ssn +''}
+                        onChange={e => setSsn(e.target.value)}
                     />
                 </InputGroup>
 
@@ -47,6 +85,8 @@ const UserEdit = () => {
                         placeholder="mobile"
                         aria-label="mobile"
                         aria-describedby="basic-addon1"
+                        value={mobile}
+                        onChange={e => setMobile(e.target.value)}
                     />
                 </InputGroup>
 
@@ -60,6 +100,8 @@ const UserEdit = () => {
                         placeholder="email"
                         aria-label="email"
                         aria-describedby="basic-addon1"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
                     />
                 </InputGroup>
 
@@ -69,7 +111,7 @@ const UserEdit = () => {
                             <Octicon icon={Globe} />
                         </InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl as="select">
+                    <FormControl as="select" onChange={e => setCountry(e.target.value)} defaultValue={country} >
                         <option>Norway</option>
                         <option>China</option>
                         <option>USA</option>
@@ -90,6 +132,9 @@ const UserEdit = () => {
                             label="Male"
                             type='radio'
                             id='male'
+                            name='gender'
+                            checked={gender == 'Male'}
+                            onChange={e => setGender('Male')}
                         />
                         <Form.Check
                             custom
@@ -97,17 +142,27 @@ const UserEdit = () => {
                             label="Female"
                             type='radio'
                             id='female'
+                            name='gender'
+                            checked={gender == 'Female'}
+                            onChange={e => setGender('Female')}
                         />
                     </div>
                 </InputGroup>
             </div>
 
             <div>
-                <Button>Save</Button>
+                <Button onClick={saveUser}>Save</Button>
             </div>
 
         </div>
     );
 }
 
-export default UserEdit;
+
+const mapStateToProps = (state: IRootState) => {
+    return {
+        tempUser: state.tempUser
+    }
+}
+
+export const UserEdit = connect(mapStateToProps, {saveUserInfo})(UserEditCore);

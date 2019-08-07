@@ -1,4 +1,7 @@
 import {IRootState, IInsuranceType} from './types';
+import { handleActions } from 'redux-actions';
+import * as Action from './action';
+import { User } from './components/user';
 
 const registeredUser = {
     id: 1,
@@ -7,7 +10,7 @@ const registeredUser = {
     mobile: '50012345',
     ssn: 55555555,
     gender: 'Male',
-    country: 'Norway',
+    country: 'China',
 }
 
 const emptyUser = {
@@ -22,6 +25,7 @@ const emptyUser = {
 
 const initialState: IRootState = {
     user: registeredUser,
+    tempUser: emptyUser,
     editUserMode:false,
     cars: [],
     selectedPlans: [],
@@ -99,9 +103,24 @@ const initialState: IRootState = {
 };
 
 
-const rootReducer = (state = initialState, action) => {
+const rootReducer = handleActions(
+    {
+        [Action.EDIT_USER_INFO]: (state: IRootState, action) => ({
+            ...state, 
+            tempUser: state.user,
+            editUserMode: true,
+        }),
 
-    return state;
-}
+        [Action.SAVE_USER_INFO]: (state: IRootState, action) => {
+            console.log('action: ', action);
+            return {
+                ...state, 
+                user: action.payload,
+                editUserMode: false,}
+        },
+    }, 
+    initialState
+);
+
 
 export default rootReducer;

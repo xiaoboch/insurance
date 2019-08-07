@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Accordion, Card, Button, Modal } from 'react-bootstrap'
+import { Accordion, Card, Button, Modal, Breadcrumb } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { IRootState, IInsurancePlan } from './types';
+import { IRootState, IInsurancePlan } from '../types';
 import './css/insurance_detail.scss';
 
 interface IProps {
@@ -22,13 +22,21 @@ const InsuranceDetailCore = ({ match, allPlans }) => {
 
     return (
         <div className='insurance-detail'>
+            <Breadcrumb>
+                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                <Breadcrumb.Item href="/insurance-plans">
+                    Insurance plans
+  </Breadcrumb.Item>
+                <Breadcrumb.Item active>{planKey}</Breadcrumb.Item>
+            </Breadcrumb>
+
             <div className="page-title">{planKey}</div>
             <Accordion defaultActiveKey='1'>
                 {plans.map(plan => (
                     <InsuranceDetailCard {...{ plan, handleShow }} key={plan.name} />
                 ))}
             </Accordion>
-            <SelectInsurancePlanModal {...{show, handleClose}} />                    
+            <SelectInsurancePlanModal {...{ show, handleClose }} />
         </div>
     );
 }
@@ -61,7 +69,7 @@ const InsuranceDetailCard = (props: IInsuranceDetailCardProps) => {
     );
 }
 
-const SelectInsurancePlanModal = ({show, handleClose}) => {
+const SelectInsurancePlanModal = ({ show, handleClose }) => {
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
