@@ -30,6 +30,7 @@ class App extends React.PureComponent {
                                 <Route exact path='/insurance-plans' component={InsurancePlans}></Route>
                                 <Route path='/insurance-plans/:plan' component={InsuranceDetail}></Route>
                                 <Route path='/about-us' component={AboutUs}></Route>
+                                <Route path='/my-page' component={User}></Route>
                             </div>
                         </div>
                         <Footer />

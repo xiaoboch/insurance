@@ -45,7 +45,7 @@ const InsuranceDetailCore = ({ match, allPlans, selectedPlans, selectInsurancePl
                     <Link to='/'>Home</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>
-                    <Link to='/user'>user</Link>
+                    <Link to='/user'>User</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item >
                     <Link to='/insurance-plans'>Insurance plans</Link>

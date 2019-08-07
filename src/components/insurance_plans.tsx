@@ -21,7 +21,7 @@ const InsurancePlansCore = (props: IProps) => {
                     <Link to='/'>Home</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>
-                    <Link to='/user'>user</Link>
+                    <Link to='/user'>User</Link>
                 </Breadcrumb.Item>
             </Breadcrumb>
 
