@@ -11,7 +11,7 @@ import Header from './commons/header';
 import Footer from './commons/footer';
 import AboutUs from './about_us';
 import './css/app.scss';
-import rootReducer from './reducer';
+import rootReducer from '../reducer';
 
 const store = createStore(rootReducer);
 

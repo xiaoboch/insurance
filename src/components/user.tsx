@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import './css/home.scss';
-import { IRootState, IUser, IInsurancePlan } from './types';
+import { IRootState, IUser, IInsurancePlan } from '../types';
 import UserDetail from './user_detail';
 import UserEdit from './user_edit';
 
@@ -27,6 +26,10 @@ const UserCore = (props) => {
 
         </div>
     );
+}
+
+const SelectedInsurances = () => {
+    
 }
 
 const mapStateToProps = (state: IRootState) => ({

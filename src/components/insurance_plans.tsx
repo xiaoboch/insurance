@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
-import { IInsurancePlan, IInsuranceType, IRootState } from './types';
+import { IInsurancePlan, IInsuranceType, IRootState } from '../types';
 import Octicon, { Rocket } from '@primer/octicons-react';
 import './css/insurance_plans.scss'
 

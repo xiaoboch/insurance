@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Octicon, { Person, Note, DeviceMobile, Mail, Organization, Globe } from '@primer/octicons-react';
 import './css/home.scss';
-import { IRootState, IUser } from './types';
+import { IRootState, IUser } from '../types';
 
 import './css/user_detail.scss';
 import { Button } from 'react-bootstrap';

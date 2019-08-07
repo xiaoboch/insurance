@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './../css/header.scss'
+import '../css/header.scss'
 import { Nav } from 'react-bootstrap';
 
 const Header = () => {
