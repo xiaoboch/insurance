@@ -16,23 +16,23 @@ interface IDispatchers {
     selectInsurancePlan: typeof selectInsurancePlan;
 }
 
-const InsuranceDetailCore = ({ match, allPlans,selectedPlans, selectInsurancePlan }) => {
+const InsuranceDetailCore = ({ match, allPlans, selectedPlans, selectInsurancePlan }) => {
 
     const planKey = match.params.plan;
     const plans = allPlans[planKey];
     const [show, setShow] = React.useState(false);
     const [selectedPlan, setSelectedPlan] = React.useState(null);
     const handleClose = () => setShow(false);
-    const selectedPlanId = selectedPlans[planKey] ?  selectedPlans[planKey].id : [];
+    const selectedPlanId = selectedPlans[planKey] ? selectedPlans[planKey].id : [];
     console.log('selected plan ids: ', selectedPlanId);
-    
+
     const handleShow = (plan: IInsurancePlan) => {
         setSelectedPlan(plan);
         setShow(true);
     }
 
     const handleSelect = (plan: IInsurancePlan) => {
-        selectInsurancePlan({planKey, plan});
+        selectInsurancePlan({ planKey, plan });
         setShow(false);
     }
 
@@ -41,12 +41,14 @@ const InsuranceDetailCore = ({ match, allPlans,selectedPlans, selectInsurancePla
     return (
         <div className='insurance-detail'>
             <Breadcrumb>
-                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                <Breadcrumb.Item href="/user">
-                    User
+                <Breadcrumb.Item>
+                    <Link to='/'>Home</Link>
                 </Breadcrumb.Item>
-                <Breadcrumb.Item href="/insurance-plans">
-                    Insurance plans
+                <Breadcrumb.Item>
+                    <Link to='/user'>user</Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item >
+                    <Link to='/insurance-plans'>Insurance plans</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item active>{planKey}</Breadcrumb.Item>
             </Breadcrumb>
@@ -85,7 +87,7 @@ const InsuranceDetailCard = (props: IInsuranceDetailCardProps) => {
                         {plan.costPrMonth}
                     </div>
                     <Button className='select-plan-btn' onClick={() => props.handleShow(plan)} disabled={props.selected}>
-                        {props.selected ? 'Selected' : 'Select' }
+                        {props.selected ? 'Selected' : 'Select'}
                     </Button>
                 </Card.Body>
             </Accordion.Collapse>
@@ -99,7 +101,7 @@ const SelectInsurancePlanModal = ({ show, handleClose, handleSelect, planKey, se
     console.log('selectedPlan', selectedPlan);
     if (selectedPlan) {
         return (
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} centered >
                 <Modal.Header closeButton>
                     <Modal.Title>Choose insurance plan</Modal.Title>
                 </Modal.Header>
@@ -116,9 +118,9 @@ const SelectInsurancePlanModal = ({ show, handleClose, handleSelect, planKey, se
                 </Modal.Footer>
             </Modal>
         );
-    }else {
+    } else {
         return <div>
-            
+
         </div>
     }
 
@@ -129,4 +131,4 @@ const mapStateToProps = (state: IRootState) => ({
     selectedPlans: state.selectedPlans,
 });
 
-export const InsuranceDetail = connect(mapStateToProps, {selectInsurancePlan})(InsuranceDetailCore);
+export const InsuranceDetail = connect(mapStateToProps, { selectInsurancePlan })(InsuranceDetailCore);

@@ -17,9 +17,11 @@ const InsurancePlansCore = (props: IProps) => {
     return (
         <div>
             <Breadcrumb>
-                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                <Breadcrumb.Item href="/user">
-                    User
+                <Breadcrumb.Item>
+                    <Link to='/'>Home</Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>
+                    <Link to='/user'>user</Link>
                 </Breadcrumb.Item>
             </Breadcrumb>
 

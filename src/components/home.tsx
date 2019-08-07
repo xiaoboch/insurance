@@ -13,7 +13,7 @@ const Home = () => {
             </div>
 
             <Link to='/user'>
-              <button className="btn btn-primary get-start-btn">30-Days free!</button>
+              <button data-cy='try-out' className="btn btn-primary get-start-btn">30-Days free!</button>
             </Link>
 
         </div>

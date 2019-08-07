@@ -5,6 +5,7 @@ import { IRootState, IUser, IInsurancePlan } from '../types';
 import { UserDetail } from './user_detail';
 import { UserEdit } from './user_edit';
 import { Breadcrumb } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 interface IProps {
     user: IUser,
@@ -17,7 +18,7 @@ const UserCore = (props) => {
     return (
         <div className='user'>
             <Breadcrumb>
-                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                <Link to='/'>Home</Link>
             </Breadcrumb>
 
             <div className='page-title'>Your information</div>
