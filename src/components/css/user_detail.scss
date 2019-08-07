@@ -17,7 +17,17 @@
                 text-align: center;
             }
         }
-        
+    }
+            
+    .select-plans-link {
+        display: block;
+
+        button  {
+            margin-top: 2em;
+            font-size: 1.8em;
+            width: 10em;
+            height: 2em;
+        }
     }
 
 }

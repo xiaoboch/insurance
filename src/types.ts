@@ -3,7 +3,7 @@ export interface IRootState {
     tempUser: IUser;
     editUserMode: boolean;
     cars: ICar[];
-    selectedPlans: IInsurancePlan[];
+    selectedPlans: {[key: string]: IInsurancePlan};
     allPlans: {[key: string]: IInsurancePlan[]};
 }
 
@@ -30,7 +30,9 @@ export interface ICar {
 }
 
 export interface IInsurancePlan {
+    id: number;
     name: string;
+    type: string;
     description: string;
     order: number;
     costPrMonth: number;

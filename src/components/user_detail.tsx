@@ -54,7 +54,7 @@ const UserDetailCore = (props: IProps & IDispatchers) => {
                 <div className='btn btn-link' onClick={editUserInfo}>Edit</div>
             </div>
 
-            <Link to='/insurance-plans'>
+            <Link to='/insurance-plans' className='select-plans-link'>
                 <Button>Choose plans</Button>
             </Link>
         </div>

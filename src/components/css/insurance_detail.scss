@@ -11,3 +11,13 @@
         }
     }
 }
+
+.modal-open {
+    .modal-body {
+        span {
+            font-weight: bold;
+            font-size: 1.4em;
+            color: cornflowerblue;
+        }
+    }
+}
