@@ -48,7 +48,7 @@ const InsuranceDetailCore = ({ match, allPlans, selectedPlans, selectInsurancePl
                     <Link to='/user'>User</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item >
-                    <Link to='/insurance-plans'>Insurance plans</Link>
+                    <Link to='/insurance-plans' data-cy='bc-insurance-plans'>Insurance plans</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item active>{planKey}</Breadcrumb.Item>
             </Breadcrumb>
@@ -75,10 +75,10 @@ const InsuranceDetailCard = (props: IInsuranceDetailCardProps) => {
     const { plan } = props;
     return (
         <Card className='plan-card'>
-            <Accordion.Toggle as={Card.Header} eventKey={plan.order + ''} >
-               <span className={props.selected ? 'plan-selected': ''}>
-               {plan.name} {props.selected ? ' (Chosen one)': ''} 
-               </span> 
+            <Accordion.Toggle as={Card.Header} eventKey={plan.order + ''} data-cy={`${plan.name}-accordion-header`}>
+                <span className={`${props.selected ? 'plan-selected' : ''} ${plan.name}-selected `}>
+                    {plan.name} {props.selected ? ' (Chosen one)' : ''}
+                </span>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey={plan.order + ''}>
                 <Card.Body>
@@ -86,9 +86,9 @@ const InsuranceDetailCard = (props: IInsuranceDetailCardProps) => {
                         {plan.description}
                     </div>
                     <div className="costPrMonth">
-                      Kostnad:  {plan.costPrMonth}
+                        Kostnad:  {plan.costPrMonth}
                     </div>
-                    <Button className='select-plan-btn' onClick={() => props.handleShow(plan)} disabled={props.selected}>
+                    <Button className='select-plan-btn' onClick={() => props.handleShow(plan)} disabled={props.selected} data-cy={`${plan.name}-select-btn`}>
                         {props.selected ? 'Selected' : 'Select'}
                     </Button>
                 </Card.Body>
@@ -103,7 +103,7 @@ const SelectInsurancePlanModal = ({ show, handleClose, handleSelect, planKey, se
     console.log('selectedPlan', selectedPlan);
     if (selectedPlan) {
         return (
-            <Modal show={show} onHide={handleClose} centered >
+            <Modal data-cy='select-insurance-plan-modal' show={show} onHide={handleClose} centered >
                 <Modal.Header closeButton>
                     <Modal.Title>Choose insurance plan</Modal.Title>
                 </Modal.Header>
@@ -114,7 +114,7 @@ const SelectInsurancePlanModal = ({ show, handleClose, handleSelect, planKey, se
                     <Button variant="secondary" onClick={handleClose}>
                         Cancel
               </Button>
-                    <Button variant="primary" onClick={() => handleSelect(selectedPlan)}>
+                    <Button variant="primary" onClick={() => handleSelect(selectedPlan)} data-cy='select-insurance-plan-choose-btn'>
                         Choose
               </Button>
                 </Modal.Footer>

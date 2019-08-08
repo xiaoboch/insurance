@@ -58,7 +58,7 @@ const PlanCard = (props: IPlayCardProps) => {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae condimentum velit.
                 </Card.Text>
                 <Link to={url} >
-                    <Button variant="primary">Detalije</Button>
+                    <Button variant="primary" data-cy={props.cat + '-detail-btn' }>Detalije</Button>
                 </Link>
             </Card.Body>
         </Card>

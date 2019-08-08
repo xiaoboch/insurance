@@ -3,9 +3,9 @@ import * as ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import { InputGroup, FormControl, Button, Form } from 'react-bootstrap';
 import Octicon, { Person, Note, DeviceMobile, Mail, Organization, Globe } from '@primer/octicons-react';
-import './css/register.scss';
-import {saveUserInfo} from '../action';
-import {connect} from 'react-redux';
+import './css/user_edit.scss';
+import { saveUserInfo } from '../action';
+import { connect } from 'react-redux';
 import { IUser, IRootState } from '../types';
 
 interface IProps {
@@ -17,7 +17,7 @@ interface IDispatchers {
 }
 
 const UserEditCore = (props: IProps & IDispatchers) => {
-    
+
     const tempUser = props.tempUser;
 
     const [fullName, setFullName] = React.useState(tempUser.fullName);
@@ -27,12 +27,12 @@ const UserEditCore = (props: IProps & IDispatchers) => {
     const [country, setCountry] = React.useState(tempUser.country);
     const [gender, setGender] = React.useState(tempUser.gender);
 
-    const saveUser = () =>{
+    const saveUser = () => {
         const user = {
-            fullName, 
+            fullName,
             country,
             email,
-            mobile, 
+            mobile,
             ssn,
             gender,
             id: 1,
@@ -41,85 +41,90 @@ const UserEditCore = (props: IProps & IDispatchers) => {
     }
 
     return (
-        <div className='register'>
-            <div className="register-form">
+        <div className='user-edit'>
+            <div className="user-edit-form">
                 <InputGroup className="mb-3">
                     <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">
+                        <InputGroup.Text id="fullName">
                             <Octicon icon={Person} />
                         </InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl
                         placeholder="full name"
                         aria-label="full name"
-                        aria-describedby="basic-addon1"
+                        aria-describedby="fullName"
                         value={fullName}
+                        data-cy='fullName-input'
                         onChange={e => setFullName(e.target.value)}
                     />
                 </InputGroup>
 
                 <InputGroup className="mb-3">
                     <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">
+                        <InputGroup.Text id="ssn">
                             <Octicon icon={Note} />
                         </InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl
                         placeholder="social security number"
                         aria-label="ssn"
-                        aria-describedby="basic-addon1"
-                        value={ssn +''}
+                        aria-describedby="ssn"
+                        value={ssn + ''}
+                        data-cy='ssn-input'
                         onChange={e => setSsn(e.target.value)}
                     />
                 </InputGroup>
 
                 <InputGroup className="mb-3">
                     <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">
+                        <InputGroup.Text id="mobile">
                             <Octicon icon={DeviceMobile} />
                         </InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl
                         placeholder="mobile"
                         aria-label="mobile"
-                        aria-describedby="basic-addon1"
+                        aria-describedby="mobile"
                         value={mobile}
+                        data-cy='mobile-input'
                         onChange={e => setMobile(e.target.value)}
                     />
                 </InputGroup>
 
                 <InputGroup className="mb-3">
                     <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">
+                        <InputGroup.Text id="mail">
                             <Octicon icon={Mail} />
                         </InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl
                         placeholder="email"
                         aria-label="email"
-                        aria-describedby="basic-addon1"
+                        aria-describedby="mobile"
                         value={email}
+                        data-cy='email-input'
                         onChange={e => setEmail(e.target.value)}
                     />
                 </InputGroup>
 
                 <InputGroup className="mb-3">
                     <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">
+                        <InputGroup.Text id="country">
                             <Octicon icon={Globe} />
                         </InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl as="select" onChange={e => setCountry(e.target.value)} defaultValue={country} >
-                        <option>Norway</option>
-                        <option>China</option>
-                        <option>USA</option>
-                        <option>UK</option>
+                    <FormControl as="select" onChange={e => setCountry(e.target.value)} defaultValue={country}
+                        data-cy='country-select' >
+                        <option value='Norway'>Norway</option>
+                        <option value='China'>China</option>
+                        <option value='USA'>USA</option>
+                        <option value='UK'>UK</option>
                     </FormControl>
                 </InputGroup>
 
                 <InputGroup className="mb-3">
                     <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">
+                        <InputGroup.Text id="gender">
                             <Octicon icon={Organization} />
                         </InputGroup.Text>
                     </InputGroup.Prepend>
@@ -131,6 +136,7 @@ const UserEditCore = (props: IProps & IDispatchers) => {
                             type='radio'
                             id='male'
                             name='gender'
+                            data-cy='male-radio'
                             checked={gender == 'Male'}
                             onChange={e => setGender('Male')}
                         />
@@ -141,6 +147,7 @@ const UserEditCore = (props: IProps & IDispatchers) => {
                             type='radio'
                             id='female'
                             name='gender'
+                            data-cy='female-radio'
                             checked={gender == 'Female'}
                             onChange={e => setGender('Female')}
                         />
@@ -149,7 +156,7 @@ const UserEditCore = (props: IProps & IDispatchers) => {
             </div>
 
             <div>
-                <Button onClick={saveUser}>Save</Button>
+                <Button onClick={saveUser} className='save-user-btn' data-cy='save-user-btn' >Save</Button>
             </div>
 
         </div>
@@ -163,4 +170,4 @@ const mapStateToProps = (state: IRootState) => {
     }
 }
 
-export const UserEdit = connect(mapStateToProps, {saveUserInfo})(UserEditCore);
+export const UserEdit = connect(mapStateToProps, { saveUserInfo })(UserEditCore);

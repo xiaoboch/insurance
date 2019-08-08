@@ -8,9 +8,7 @@ context('hjemme siden', () => {
 
     it('should navigate to user page after clicking try out button', () => {
         cy.get('[data-cy=try-out]').click();
-        
+        cy.get('[data-cy=user]').should('exist');   
     });
-
-    expect(true).to.equal(true)
 
 });

@@ -27,31 +27,31 @@ const UserDetailCore = (props: IProps & IDispatchers) => {
 
                     <div className="icon"><Octicon icon={Person} size='medium' /></div>
                     <div className="label">Full name:</div>
-                    <div className="value">{user.fullName}</div>
+                    <div className="value" data-cy='fullName'>{user.fullName}</div>
 
                     <div className="icon"><Octicon icon={Note} size='medium' /></div>
                     <div className="label">SSN:</div>
-                    <div className="value">{user.ssn}</div>
+                    <div className="value" data-cy='ssn'>{user.ssn}</div>
 
                     <div className="icon"><Octicon icon={Mail} size='medium' /></div>
                     <div className="label">Email:</div>
-                    <div className="value">{user.email}</div>
+                    <div className="value" data-cy='email'>{user.email}</div>
 
                     <div className="icon"><Octicon icon={DeviceMobile} size='medium' /></div>
                     <div className="label">
                         Mobile: </div>
-                    <div className="value">{user.mobile}</div>
+                    <div className="value" data-cy='mobile'>{user.mobile}</div>
 
                     <div className="icon"><Octicon icon={Globe} size='medium' /></div>
                     <div className="label">Country: </div>
-                    <div className="value">{user.country}</div>
+                    <div className="value" data-cy='country'>{user.country}</div>
 
                     <div className="icon"><Octicon icon={Organization} size='medium' /></div>
                     <div className="label">Gender: </div>
-                    <div className="value">{user.gender}</div>
+                    <div className="value" data-cy='gender'>{user.gender}</div>
                 </div>
 
-                <div className='btn btn-link' onClick={editUserInfo}>Edit</div>
+                <div className='btn btn-link' data-cy='edit-user-btn' onClick={editUserInfo}>Edit</div>
             </div>
 
             <Link to='/insurance-plans' className='select-plans-link'>

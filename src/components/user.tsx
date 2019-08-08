@@ -16,7 +16,7 @@ interface IProps {
 const UserCore = (props) => {
     console.log('User id: ', props.user.id)
     return (
-        <div className='user'>
+        <div className='user' data-cy='user'>
             <Breadcrumb>
                 <Link to='/'>Home</Link>
             </Breadcrumb>
