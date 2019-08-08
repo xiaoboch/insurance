@@ -76,7 +76,7 @@ const InsuranceDetailCard = (props: IInsuranceDetailCardProps) => {
     return (
         <Card className='plan-card'>
             <Accordion.Toggle as={Card.Header} eventKey={plan.order + ''} data-cy={`${plan.name}-accordion-header`}>
-                <span className={`${props.selected ? 'plan-selected' : ''} ${plan.name}-selected `}>
+                <span className={`${props.selected ? 'plan-selected' : ''}`} data-cy={ `${plan.name}-selected` }>
                     {plan.name} {props.selected ? ' (Chosen one)' : ''}
                 </span>
             </Accordion.Toggle>
@@ -104,7 +104,7 @@ const SelectInsurancePlanModal = ({ show, handleClose, handleSelect, planKey, se
     if (selectedPlan) {
         return (
             <Modal data-cy='select-insurance-plan-modal' show={show} onHide={handleClose} centered >
-                <Modal.Header closeButton>
+                <Modal.Header data-cy={`${selectedPlan.name}-modal-header`} closeButton>
                     <Modal.Title>Choose insurance plan</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
