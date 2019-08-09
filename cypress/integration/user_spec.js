@@ -18,6 +18,7 @@ context('User page', () => {
 
 
     it('should edit coutry', () => {
+
         cy.get('[data-cy=edit-user-btn]').click();
         cy.get('[data-cy=country-select]')
             .select('UK')
@@ -28,7 +29,7 @@ context('User page', () => {
     });
 
 
-    it('should edit coutry', () => {
+    it('should edit gender', () => {
         cy.get('[data-cy=edit-user-btn]').click();
         cy.get('[data-cy=female-radio]').click({force: true});
 
