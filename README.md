@@ -2,6 +2,7 @@
  
 ## How to run the application: 
 You may run all the commands in cmd tools or gitbash in windows or in linux terminal. 
+    
     1. Install yarn: https://yarnpkg.com/lang/en/docs/install/#windows-stable
         1.1. You may install gitbash for better command line experience if you are using windows.
 
