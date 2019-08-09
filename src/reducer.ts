@@ -5,7 +5,7 @@ import { User } from './components/user';
 
 const registeredUser = {
     id: 1,
-    fullName: 'Ole jansen',
+    fullName: 'Ole Jansen',
     email: 'ole.jansen@gmail.com',
     mobile: '50012345',
     ssn: 55555555,
